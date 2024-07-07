@@ -29,7 +29,7 @@ app.listen(port,()=>
 
 app.get("/",(req,res)=>
 {
-   res.status(200).render("index")
+   res.render("index")
 })
 
 app.post("/submit",(req,res)=>
