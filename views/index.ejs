@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>shrestha8summit</title>
+    <link href="./output.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400..800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Rochester&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Fredericka+the+Great&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="https://github.com/shrestha8summit/Images-for-webpage/blob/main/logo.png?raw=true" type="image/jpg" />
+  </head>
+  <body class="overflow-y-scroll bg-custom-gradient text-lg no-scrollbar" style="scroll-behavior: smooth">
+    <div class="container mx-auto p-4" id="header">
+      <div class="img1 p-6">
+        <center>
+          <img src="https://github.com/shrestha8summit/Images-for-webpage/blob/main/name.png?raw=true" alt="my_name" class="h-auto max-w-full" />
+        </center>
+      </div>
+
+      <div class="content sticky top-5 z-50 flex flex-col justify-between rounded-3xl bg-black p-4 italic md:flex-row">
+        <div class="item1 flex justify-center text-lg text-purple-500 sm:text-xl md:justify-start md:text-2xl lg:text-3xl">
+          <abbr title="shrestha8summit || mr8max">∞</abbr>
+        </div>
+
+        <div class="item2 mt-4 text-center font-rochester text-lg text-purple-500 sm:text-xl md:mt-0 md:text-2xl lg:text-3xl"><span id="element"></span><br /></div>
+
+        <nav class="item3 mt-4 flex justify-center space-x-4 pr-4 font-fredericka text-base uppercase text-purple-500 sm:text-lg md:mt-0 md:justify-end md:text-xl lg:text-2xl" aria-label="Main Navigation">
+          <a href="#header" class="anch pr-2 hover:font-fredericka hover:text-slate-400" aria-label="About Me"><abbr title="me.. About me" onclick="fun()">About</abbr></a>
+          <a href="#proj" class="anch pr-2 hover:font-fredericka hover:text-slate-400" aria-label="Projects"><abbr title="jects..projects">Pro</abbr></a>
+          <a href="#form" class="anch pr-2 hover:font-fredericka hover:text-slate-400" aria-label="Contact">Contact</a>
+        </nav>
+      </div>
+
+      <div id="proj" class="glass-effect mt-10 rounded pl-14">
+        <h3 class="topic mr-4 flex justify-end font-rochester text-3xl md:text-4xl">Projects</h3>
+
+        <div class="projects grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <!-- Project 1 -->
+          <div class="fc">
+            <div class="flip-card h-72 w-72 rounded-full">
+              <a href="https://github.com/shrestha8summit/Send-mail" target="_blank" class="rounded-full">
+                <div class="flip-card-inner relative h-full w-full rounded-full">
+                  <div class="flip-card-front absolute flex h-full w-full items-center justify-center rounded-full bg-gray-300">
+                    <img src="https://github.com/shrestha8summit/Send-mail/blob/main/sendmail.png?raw=true" alt="Send Mail" class="h-full w-full rounded-full object-cover" />
+                  </div>
+                  <div class="flip-card-back absolute flex h-full w-full flex-col items-center justify-center rounded-full bg-blue-600 text-white">
+                    <h1 class="text-xl font-bold">Send mail</h1>
+                    <p class="font-delius text-lg">Languages used:</p>
+                    <p class="font-delius text-lg">Node JS, Nodemailer</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <p class="pr-20 text-center font-fredericka">Send mail</p>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="sc">
+            <div class="flip-card h-72 w-72 rounded-full">
+              <a href="https://github.com/shrestha8summit/Sport-Management-System" target="_blank" class="rounded-full">
+                <div class="flip-card-inner relative h-full w-full rounded-full">
+                  <div class="flip-card-front absolute flex h-full w-full items-center justify-center rounded-full bg-gray-300">
+                    <img src="https://github.com/shrestha8summit/Sport-Management-System/blob/main/snapshots/sportsmanagment.png?raw=true" alt="Sports Management System" class="h-full w-full rounded-full object-cover" />
+                  </div>
+                  <div class="flip-card-back absolute flex h-full w-full flex-col items-center justify-center rounded-full bg-blue-600 text-white">
+                    <h1 class="text-xl font-bold">Sports Management System</h1>
+                    <p class="font-delius text-lg">Languages used:</p>
+                    <p class="font-delius text-lg">HTML, CSS, JS & PHP</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <p class="pr-20 text-center font-fredericka">Sports Management System</p>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="tc">
+            <div class="flip-card h-72 w-72 rounded-full">
+              <a href="https://github.com/shrestha8summit/Weather-Forecast" target="_blank" class="rounded-full">
+                <div class="flip-card-inner relative h-full w-full rounded-full">
+                  <div class="flip-card-front absolute flex h-full w-full items-center justify-center rounded-full bg-gray-300">
+                    <img src="https://github.com/shrestha8summit/Weather-Forecast/blob/main/weather.png?raw=true" alt="Weather Forecast" class="h-full w-full rounded-full object-cover" />
+                  </div>
+                  <div class="flip-card-back absolute flex h-full w-full flex-col items-center justify-center rounded-full bg-blue-600 text-white">
+                    <h1 class="text-xl font-bold">Weather Forecast</h1>
+                    <p class="font-delius text-lg">Languages used:</p>
+                    <p class="font-delius text-lg">Python</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <p class="pr-20 text-center font-fredericka">Weather Forecast</p>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="foc">
+            <div class="flip-card h-72 w-72 rounded-full">
+              <a href="https://github.com/shrestha8summit/Smart-City-Temperature-Analyzer" target="_blank" class="rounded-full">
+                <div class="flip-card-inner relative h-full w-full rounded-full">
+                  <div class="flip-card-front absolute flex h-full w-full items-center justify-center rounded-full bg-gray-300">
+                    <img src="https://github.com/shrestha8summit/Images-for-webpage/blob/main/c-.png?raw=true" alt="Temperature Analyzer" class="h-full w-full rounded-full object-cover" />
+                  </div>
+                  <div class="flip-card-back absolute flex h-full w-full flex-col items-center justify-center rounded-full bg-blue-600 text-white">
+                    <h1 class="text-xl font-bold">Temperature Analyzer</h1>
+                    <p class="font-delius text-lg">Languages used:</p>
+                    <p class="font-delius text-lg">CPP</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <p class="pr-20 text-center font-fredericka">Temperature Analyzer</p>
+          </div>
+
+          <!-- Project 5 -->
+          <div class="fifc">
+            <div class="flip-card h-72 w-72 rounded-full">
+              <a href="https://github.com/shrestha8summit/Other-projects/tree/main/JS/Black%20Jack%20game" target="_blank" class="rounded-full">
+                <div class="flip-card-inner relative h-full w-full rounded-full">
+                  <div class="flip-card-front absolute flex h-full w-full items-center justify-center rounded-full bg-gray-300">
+                    <img src="https://github.com/shrestha8summit/Other-projects/blob/main/JS/Black%20Jack%20game/Pics/Black%20jack.png?raw=true" alt="Black Jack Game" class="h-full w-full rounded-full object-cover" />
+                  </div>
+                  <div class="flip-card-back absolute flex h-full w-full flex-col items-center justify-center rounded-full bg-blue-600 text-white">
+                    <h1 class="text-xl font-bold">Black Jack game</h1>
+                    <p class="font-delius text-lg">Languages used:</p>
+                    <p class="font-delius text-lg">HTML, CSS & JS</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <p class="pr-20 text-center font-fredericka">Black Jack</p>
+          </div>
+
+          <!-- Project 6 -->
+          <div class="oc">
+            <div class="flip-card h-72 w-72 rounded-full">
+              <a href="https://github.com/shrestha8summit/Other-projects" target="_blank" class="rounded-full">
+                <div class="flip-card-inner relative h-full w-full rounded-full">
+                  <div class="flip-card-front absolute flex h-full w-full items-center justify-center rounded-full bg-gray-300">
+                    <img src="https://github.com/shrestha8summit/Images-for-webpage/blob/main/logo.png?raw=true" alt="Other Projects" class="h-full w-full rounded-full object-cover" />
+                  </div>
+                  <div class="flip-card-back absolute flex h-full w-full flex-col items-center justify-center rounded-full bg-blue-600 text-white">
+                    <h1 class="text-xl font-bold">Other projects</h1>
+                    <p class="font-delius text-lg">Languages used:</p>
+                    <p class="font-delius text-lg">JS, Python</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <p class="pr-20 text-center font-fredericka">Other Projects</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="form" class="mt-10">
+        <form class="form glass-effect rounded-lg bg-white/10 p-4 md:p-8" action="/submit" method="post">
+          <fieldset class="form">
+            <legend class="legendClass font-rochester text-3xl md:text-4xl">
+              <em>Contact me:</em>
+            </legend>
+
+            <div class="formName flex flex-col items-center justify-center space-y-4 pb-4 pt-4 md:flex-row md:space-x-4 md:space-y-0 md:p-8">
+              <label class="labelForm font-mono text-xl md:text-2xl" for="firstName">First name</label>
+              <input type="text" name="fName" id="firstName" placeholder="Summit" required class="w-96 rounded-lg p-2 font-semibold md:p-3" autocomplete="off" />
+              <label class="labelForm font-mono text-xl md:text-2xl" for="lastName">Last name</label>
+              <input type="text" name="lName" id="lastName" placeholder="Shrestha" required class="w-96 rounded-lg p-2 font-semibold md:p-3" />
+            </div>
+
+            <div class="reachOut flex flex-col items-center justify-center space-y-4 p-4 md:flex-row md:space-x-4 md:space-y-0 md:p-8">
+              <label class="labelForm font-mono text-xl md:text-2xl" for="phone">Phone No</label>
+              <input type="number" name="phoNum" id="phone" placeholder="9847******" required class="rounded-lg pb-2 pr-2 pt-2 font-semibold md:p-3" />
+              <label class="labelForm font-mono text-xl md:text-2xl" for="email">Email </label>
+              <input type="email" name="mail" id="email" placeholder="username@ESP.com" required class="rounded-lg p-2 font-semibold md:p-3" />
+              <label class="labelForm font-mono text-xl md:text-2xl" for="address">Address </label>
+              <input type="text" name="add" id="address" placeholder="Your address" required class="rounded-lg p-2 font-semibold md:p-3" />
+            </div>
+
+            <div class="textArea flex justify-center">
+              <textarea name="msg" rows="5" cols="40" placeholder="Leave a comment..." class="rounded-lg p-2 font-semibold md:p-3"></textarea>
+            </div>
+
+            <div class="submit mt-4 flex justify-center">
+              <button type="submit" class="sbtBtn flex items-center justify-center" onclick="alert('Thank you for your message.')">
+                <img src="https://github.com/shrestha8summit/Images-for-webpage/blob/main/submit.png?raw=true" alt="submit" class="sbt h-28 w-28" />
+              </button>
+              <!-- <input type="submit" value="Submit" class="submitBtn font-mono text-2xl md:text-3xl text-purple-500 rounded-full p-2 bg-white cursor-pointer hover:bg-slate-400 hover:font-mono"> -->
+            </div>
+          </fieldset>
+        </form>
+      </div>
+
+      <div id="footer">
+        <br /><br />
+        <center class="fta mb-8 rounded-2.5 bg-custom-gradient p-10">
+          <em class="ft font-tektur"
+            >Copyright 2023/24 A.D [2080/2081 B.S].<br />
+            Purely self designed & developed.
+          </em>
+          <br /><br />
+
+          <div class="social_media flex items-center justify-center">
+            <a href="https://www.discordapp.com/users/838408850159173654" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/3670/3670325.png" alt="Discord" style="height: 1.75rem; padding-left: 0.5rem" /></a>
+            <a href="https://www.facebook.com/shrestha8summit" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png" alt="Facebook" style="height: 1.75rem; padding-left: 0.5rem" /></a>
+            <a href="https://www.github.com/shrestha8summit" target="_blank"><img src="	https://cdn-icons-png.flaticon.com/512/25/25657.png" alt="Github" style="height: 1.75rem; padding-left: 0.5rem" /></a>
+            <a href="https://www.instagram.com/shrestha8summit" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" style="height: 1.75rem; padding-left: 0.5rem" /></a>
+            <a href="https://www.linkedin.com/in/mr8max/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" alt="Linked In" style="height: 1.75rem; padding-left: 0.5rem" /></a>
+            <a href="https://www.twitter.com/shrestha8summit" target="_blank"><img src="https://cdn-icons-png.flaticon.com/128/5968/5968958.png" alt="Twitter(X)" style="height: 1.75rem; padding-left: 0.5rem" /></a>
+            <a href="https://www.youtube.com/@shrestha8summit" target="_blank"><img src="https://cdn-icons-png.flaticon.com/128/1384/1384060.png" alt="Youtube" style="height: 1.9rem; padding-left: 0.5rem" /></a>
+          </div>
+        </center>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+
+      alert("Please use your MMB or Keyboard to surfe the page ;D ")
+
+      function fun()
+      {
+       alert("First know me with my projects then in footer section, you have all my S.M handles to know me better.")
+      }
+
+        var typed = new Typed("#element", {
+          strings: [" ज्वजलपा🙏", "Hello👋", "Namastey🙏"],
+          typeSpeed: 150,
+          backSpeed: 150,
+          loop: true,
+        });
+    </script>
+  </body>
+</html>
