@@ -1,11 +1,12 @@
-{
+ {
   "name": "men",
   "version": "1.0.0",
-  "description": "This is my project",
+  "description": "Personal webpage",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "build": "npm run build",
+    "test": "nodemon index.js"
   },
   "keywords":[],
   "author": "uhtred",
