@@ -14,7 +14,9 @@ const conn = require("./db/dbconn")
 const wbPage = require("./db/modal")
 
 
-app.use(express.static(path.join(__dirname, './temp')));
+app.set("views", __dirname + "/views");
+app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/temp"));
 
 //for ejs
 
