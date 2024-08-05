@@ -2,25 +2,27 @@ const express = require("express")
 const app = express()
 const bodyParser = require("body-parser")
 const path = require('path');
+require('dotenv').config();
 require('dotenv').config({ path: '.env' })
+const nodemailer = require("nodemailer")
 const port = process.env.port || 3000
 
 //using body-parser 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
+
 //dt require 
 const conn = require("./db/dbconn")
 const wbPage = require("./db/modal")
 
 
-app.set("views", __dirname + "/views");
-app.set("view engine", "ejs");
-app.use(express.static(__dirname + "/temp"));
+app.use(express.static(path.join(__dirname, './temp')));
 
-//for ejs
+//for ejs ---connecting other pages 
 
-const ejs = require('ejs')
+const ejs = require('ejs');
+const { randomInt } = require("crypto");
 
 app.set('view engine','ejs')
 
@@ -31,8 +33,26 @@ app.listen(port,()=>
 
 app.get("/",(req,res)=>
 {
-   res.render("index")
+   res.status(200).render("index")
 })
+
+app.get("/facilities",(req,res)=>{
+    res.status(200).render("facilities")
+})
+
+app.get('/weather', (req, res) => {
+    res.render('Weather');
+  });
+  
+  app.get('/bmi', (req, res) => {
+    res.render('BMI');
+  });
+  
+  app.get('/dictionary', (req, res) => {
+    res.render('dictionary');
+  });
+  
+
 
 app.post("/submit",(req,res)=>
 {
@@ -43,7 +63,7 @@ app.post("/submit",(req,res)=>
     let add       = req.body.add;
     let msg       = req.body.msg;
     
-    console.log(fName,lName,phonNum,mail,add,msg)
+    //console.log(fName,lName,phonNum,mail,add,msg)
     res.redirect("/")
 
     let user = new wbPage({
@@ -78,15 +98,63 @@ app.post("/check",async(req,res)=>{
     let pass2 = req.body.pass2;
     //console.log(mypass1,mypass2)
 
+    
     const  result = await wbPage.find();
 
-    let op = (mypass1==pass1 && mypass2 == pass2)?
-        
-        res.send({"data":result}):
-    
-        res.status(200).send("Why?")
+    if (mypass1 === pass1 && mypass2 === pass2) {
+      mailing();
+      res.status(200).render("otp");
+  } else {
+      res.status(200).send("Why?");
+  }
 })
 
+let otp;
+let num 
+
+//nodemailer code
+const mailing = ()=>{
+
+    const transporter = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port:  465, // Use 465 for secure connection
+        secure: true, // Use `true` for port 465, `false` for port 587
+        auth: {
+          user: process.env.email, // Ensure your .env file has EMAIL and PASSWORD
+          pass: process.env.password,
+        },
+      });
+      
+        num = Math.floor(Math.random() * 9000 + 1000);
+        console.log(num)
+        
+      transporter.sendMail({
+        from: process.env.email,
+        to: process.env.rec_email, // list of receivers
+        subject: "OTP", // Subject line
+        text: `Here is your numerical data: ${num}`
+      }).then(() => {
+        console.log("Message sent");
+      }).catch((error) => {
+        console.log("Not working", error);
+      });
+
+}
+
+
+app.post("/authentication",async(req,res)=>{
+  let getOTP = req.body.otp
+  if(num==getOTP)
+  {
+    const  result = await wbPage.find();
+    res.send({"data":result})
+  }
+  else
+  {
+      // res.sendFile(__dirname+"/index.html")
+      res.send("incorrect")
+  }
+})
 
 
 
