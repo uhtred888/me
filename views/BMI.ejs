@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div id="bmi" class="flex justify-center text-center items-center my-14">
+        <form class="w-96 h-96 flex justify-center items-center border-4" id="formm">
+            <fieldset>
+                <legend>BMI Calculator</legend>
+                <div class="lbWord pt-5 text-center">
+                    <label for="Height">Height: </label>
+                    <input type="text" name="height" id="height" class="border-4 ml-2 rounded text-center" placeholder="height ">
+                </div>
+                <div class="lbWord py-5 text-center">
+                    <label for="Weight">Weight : </label>
+                    <input type="text" name="weight" id="weight" class="border-4 ml-2 text-center" placeholder="weight">
+                </div>
+                <div class="sbtbtn p-2 bg-green-200 text-center rounded">
+                    <button type="submit">Calculate</button>
+                </div>
+
+                <div id="batta1" class="pt-4 text-lg font-bold"></div>
+                <div id="batta2" class="pt-2 text-lg font-bold"></div>
+
+                <div class="note pt-5 text-red-500">
+                    <h2>NOTE:</h2>
+                    <p>* Weight must be in kilogram</p>
+                    <p>* Height must be in meter</p>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+      $(document).ready(()=>{
+        $("#formm").submit((e)=>{
+            e.preventDefault();
+            const height = parseFloat($('input[name="height"]').val());
+            const weight = parseFloat($('input[name="weight"]').val());
+
+            if(isNaN(height) || isNaN(weight)){
+                alert("Please enter valid numerical values for height and weight.");
+                return;
+            }
+            
+            const area = height * height;
+            const bmiresult = weight / area;
+            const bmires = bmiresult.toFixed(2);
+            console.log(`Your bmi is ${bmires}.`);
+            
+            let resultBmi = "";
+
+            if(bmires <= 18.5){
+                resultBmi = "Underweight";
+            }
+            else if(bmires > 18.5 && bmires <= 24.9) {
+                resultBmi = "Normal Weight";
+            }
+            else if(bmires >= 25 && bmires <= 29.9) {
+                resultBmi = "Over Weight";
+            }
+            else {
+                resultBmi = "Obesity";
+            }
+
+
+            $("#batta1").text("Your BMI is: " + bmires);
+            $("#batta2").text("Category: " + resultBmi);
+
+            $.ajax({
+                url: "/bmi",
+                type: "POST",
+                async: false,
+                dataType: "json",
+                contentType: "application/json",
+                data: JSON.stringify({ height, weight }),
+                success: function (response) {
+                    console.log("Data successfully sent to server.");
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error occurred: " + error);
+                }
+            });
+        });
+      });
+    </script>
+</body>
+</html>

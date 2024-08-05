@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2 F.A </title>
+    <link href="./output.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="https://github.com/shrestha8summit/Images-for-webpage/blob/main/logo.png?raw=true" type="image/jpg" />
+  </head>
+  <body>
+    <div class="container flex  w-auto h-screen items-center justify-center text-center">
+      <form action="/authentication" method="post" class="m-10 border-8 border-dashed p-10">
+        <fieldset>
+          <legend>OTP</legend>
+          <div class="ele py-5 text-center">
+            <label for="OTP">One Time password</label>
+          </div>
+          <div class="ele1">
+            <input type="number" class="rounded border-rose-500 bg-blue-500 p-2 text-center font-mono shadow-blue-400" placeholder="8888" name="otp" id="otp"/>
+          </div>
+          <div class="btn flex flex-column justify-around">
+            <button type="submit" class="rounded bg-orange-600 p-2 my-4">Submit</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>

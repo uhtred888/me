@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live projects</title>
+    <link href="./output.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400..800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Rochester&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Fredericka+the+Great&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="https://github.com/shrestha8summit/Images-for-webpage/blob/main/logo.png?raw=true" type="image/jpg" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div class="facilities p-5">
+      <header class="flex items-center justify-center">
+        <a href="https://www.summit-shrestha.com.np/">
+          <img src="https://github.com/shrestha8summit/Images-for-webpage/blob/main/name.png?raw=true" alt="" />
+        </a>
+      </header>
+
+      <nav class="flex justify-around py-8 font-mono text-[1.09rem]">
+        <button id="weatherBtn" class="hover:text-[1.1rem] bg-green-400 p-2 rounded shadow-black shadow-md">Weather Forecast</button>
+        <button id="bmiBtn" class="hover:text-[1.1rem] bg-green-400 p-2 rounded shadow-black shadow-md">BMI Calculator</button>
+        <button id="dictBtn" class="hover:text-[1.1rem] bg-green-400 p-2 rounded shadow-black shadow-md">Dictionary</button>
+      </nav>
+
+      <div id="content" class="mt-5">
+        <center class="pt-32">Your web application will be displayed here.</center>
+      </div>
+    </div>
+
+    <script>
+      $(document).ready(function(){
+        $('#weatherBtn').click(function(){
+          $.ajax({
+            url: '/weather',
+            method: 'GET',
+            success: function(data) {
+              $('#content').html(data);
+            }
+          });
+        });
+
+        $('#bmiBtn').click(function(){
+          $.ajax({
+            url: '/bmi',
+            method: 'GET',
+            success: function(data) {
+              $('#content').html(data);
+            }
+          });
+        });
+
+        $('#dictBtn').click(function(){
+          $.ajax({
+            url: '/dictionary',
+            method: 'GET',
+            success: function(data) {
+              $('#content').html(data);
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

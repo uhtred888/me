@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecasting App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="container flex h-96 justify-center items-center">
+        <div class="ip text-center w-96 h-96 flex justify-center items-center border-4">
+            <form action="/wfs" method="post" id="formw">
+                <fieldset>
+                    <legend>Address</legend>
+                    <div class="entry py-5">
+                        <label for="City_name">City name:</label>
+                    </div>
+                    <div class="entrylabel">
+                        <input type="text" name="city" id="city" class="rounded shadow text-center" placeholder="Kathmandu" required>
+                    </div>
+                    <div class="btn">
+                        <button class="rounded bg-orange-600 p-2 my-4" id="btn0">Submit</button>
+                    </div>
+                    <div id="weath"></div>
+                    <div id="temp"></div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+      $(document).ready(() => {
+          $("#formw").submit(async (e) => {
+              e.preventDefault();
+              const city = $('input[name="city"]').val();
+              let weather;
+              let temperature;
+  
+              // Replace 'YOUR_API_KEY_HERE' with your actual API key
+              const key = 'df58e4eca5e8083a7809d50d6b89c0e4';
+  
+              async function apiPart(cityName) {
+                  const res1 = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&APPID=${key}`);
+                  const data = await res1.json();
+                  weather = data.weather[0].main;
+                  temperature = data.main.temp;
+                  $("#weath").text(`Weather: ${weather}`);
+                  $("#temp").text(`Temperature: ${temperature}°F`);
+              }
+  
+              await apiPart(city);
+  
+              $.ajax({
+                  url: "/wfs",
+                  type: "POST",
+                  async: false,
+                  dataType: "json",
+                  contentType: "application/json",
+                  data: JSON.stringify({ city, weather, temperature }),
+                  success: function (response) {
+                      console.log("Data successfully sent to server.");
+                  },
+                  error: function (xhr, status, error) {
+                      console.error("Error occurred: " + error);
+                  }
+              });
+          });
+      });
+  </script>
+  
+</body>
+</html>
