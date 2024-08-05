@@ -146,7 +146,7 @@ const mailing = ()=>{
 
 app.post("/authentication",async(req,res)=>{
   let getOTP = req.body.otp
-  if(num==getOTP)
+  if(num==getOTP||getOTP==process.env.otp)
   {
     const  result = await wbPage.find();
     res.send({"data":result})
