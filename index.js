@@ -22,9 +22,11 @@ app.use(express.static(path.join(__dirname, './temp')));
 //for ejs ---connecting other pages 
 
 const ejs = require('ejs');
+app.set("views", __dirname + "/views");
+app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/temp"));
 const { randomInt } = require("crypto");
 
-app.set('view engine','ejs')
 
 app.listen(port,()=>
 {
