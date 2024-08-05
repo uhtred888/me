@@ -1,5 +1,6 @@
 // connection
-require('dotenv').config("./.env");
+require('dotenv').config();
+require('dotenv').config(".env");
 const mongoose = require("mongoose")
 
 function conn()
