@@ -118,9 +118,9 @@ let num
 const mailing = ()=>{
 
     const transporter = nodemailer.createTransport({
-        host: "smtp.gmail.com",
-        port:  465, // Use 465 for secure connection
-        secure: true, // Use `true` for port 465, `false` for port 587
+         host: "smtp.zoho.com",
+        port: 465,
+        secure: true,
         auth: {
           user: process.env.email, // Ensure your .env file has EMAIL and PASSWORD
           pass: process.env.password,
@@ -128,7 +128,7 @@ const mailing = ()=>{
       });
       
         num = Math.floor(Math.random() * 9000 + 1000);
-        console.log(num)
+        //console.log(num)
         
       transporter.sendMail({
         from: process.env.email,
