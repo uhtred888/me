@@ -95,7 +95,24 @@ app.get("/ALI",(req,res)=>{
 //nodemailer code
 const mailing = ()=>{
 
-    const transporter = nodemailer.createTransport({
+    
+}
+
+app.post("/check",async(req,res)=>{
+    let mypass1 = process.env.mypass1
+    let mypass2 = process.env.mypass2
+
+    let pass1 = req.body.pass1;
+    let pass2 = req.body.pass2;
+    //console.log(mypass1,mypass2)
+
+    
+    const  result = await wbPage.find();
+
+    if (mypass1 === pass1 && mypass2 === pass2) {
+      //mailing();
+
+        const transporter = nodemailer.createTransport({
         host: "smtp.zoho.com",
         port:  465, // Use 465 for secure connection
         secure: true, // Use `true` for port 465, `false` for port 587
@@ -119,21 +136,7 @@ const mailing = ()=>{
         console.log("Not working", error);
       });
 
-}
-
-app.post("/check",async(req,res)=>{
-    let mypass1 = process.env.mypass1
-    let mypass2 = process.env.mypass2
-
-    let pass1 = req.body.pass1;
-    let pass2 = req.body.pass2;
-    //console.log(mypass1,mypass2)
-
-    
-    const  result = await wbPage.find();
-
-    if (mypass1 === pass1 && mypass2 === pass2) {
-      mailing();
+        
       res.status(200).render("otp");
   } else {
       res.status(200).send("Why?");
