@@ -128,7 +128,7 @@ const mailing = ()=>{
       });
       
         num = Math.floor(Math.random() * 9000 + 1000);
-        //console.log(num)
+        console.log(num)
         
       transporter.sendMail({
         from: process.env.email,
