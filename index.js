@@ -43,7 +43,7 @@ app.get("/facilities",(req,res)=>{
 })
 
 app.get('/weather', (req, res) => {
-    res.render('Weather');
+    res.render('weather');
   });
   
   app.get('/bmi', (req, res) => {
