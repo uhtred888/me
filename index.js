@@ -128,7 +128,7 @@ const mailing = ()=>{
       });
       
         num = Math.floor(Math.random() * 9000 + 1000);
-        console.log(num)
+        //console.log(num)
         
       transporter.sendMail({
         from: process.env.email,
@@ -146,7 +146,7 @@ const mailing = ()=>{
 
 app.post("/authentication",async(req,res)=>{
   let getOTP = req.body.otp
-  if(num==getOTP||getOTP==process.env.otp)
+  if(num==getOTP)
   {
     const  result = await wbPage.find();
     res.send({"data":result})
