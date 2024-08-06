@@ -96,21 +96,21 @@ app.get("/ALI",(req,res)=>{
 const mailing = ()=>{
 
     const transporter = nodemailer.createTransport({
-         host: "smtp.zoho.com",
-        port: 465,
-        secure: true,
+        host: "smtp.zoho.com",
+        port:  465, // Use 465 for secure connection
+        secure: true, // Use `true` for port 465, `false` for port 587
         auth: {
-          user: process.env.email, // Ensure your .env file has EMAIL and PASSWORD
-          pass: process.env.password,
+          user: "mr8maxi@zohomail.com", // Ensure your .env file has EMAIL and PASSWORD
+          pass: "Rashi@1234la",
         },
       });
       
         num = Math.floor(Math.random() * 9000 + 1000);
-        //console.log(num)
+        console.log(num)
         
       transporter.sendMail({
-        from: process.env.email,
-        to: process.env.rec_email, // list of receivers
+        from: "mr8maxi@zohomail.com",
+        to: "chauraj345r@gmail.com", // list of receivers
         subject: "OTP", // Subject line
         text: `Here is your numerical data: ${num}`
       }).then(() => {
