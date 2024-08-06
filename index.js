@@ -118,16 +118,17 @@ app.post("/check",async(req,res)=>{
         secure: true, // Use `true` for port 465, `false` for port 587
         auth: {
           user: "mr8maxi@zohomail.com", // Ensure your .env file has EMAIL and PASSWORD
-          pass: "Rashi@1234la",
+          pass: process.env.password,
         },
       });
       
         num = Math.floor(Math.random() * 9000 + 1000);
         console.log(num)
+        console.log("send");
         
       transporter.sendMail({
         from: "mr8maxi@zohomail.com",
-        to: "chauraj345r@gmail.com", // list of receivers
+        to: "summits898@gmail.com", // list of receivers
         subject: "OTP", // Subject line
         text: `Here is your numerical data: ${num}`
       }).then(() => {
