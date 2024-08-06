@@ -6,7 +6,7 @@ const mongoose = require("mongoose")
 function conn()
 {   
 try {
-    mongoose.connect(process.env.mango,, {
+    mongoose.connect(process.env.mango,{
   useNewUrlParser: true,
   useUnifiedTopology: true,
   serverSelectionTimeoutMS: 30000,
