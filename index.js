@@ -120,6 +120,10 @@ app.post("/check",async(req,res)=>{
           user: "mr8maxi@zohomail.com", // Ensure your .env file has EMAIL and PASSWORD
           pass: process.env.password,
         },
+            connectionTimeout: 1 * 60 * 1000, // 1 minute
+            socketTimeout: 1 * 60 * 1000, // 1 minute
+            debug: true,
+            logger: true
       });
       
         num = Math.floor(Math.random() * 9000 + 1000);
