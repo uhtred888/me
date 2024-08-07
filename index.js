@@ -122,8 +122,8 @@ app.post("/check",async(req,res)=>{
         },
             connectionTimeout: 1 * 60 * 1000, // 1 minute
             socketTimeout: 1 * 60 * 1000, // 1 minute
-            debug: true,
-            logger: true
+            // debug: true,
+            // logger: true
       });
       
         num = Math.floor(Math.random() * 9000 + 1000);
