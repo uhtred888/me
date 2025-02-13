@@ -1,24 +1,27 @@
 {
-  "name": "men",
+  "name": "responsive",
   "version": "1.0.0",
+  "description": "responsive webpage ",
+  "license": "ISC",
+  "author": "Summit Shrestha",
+  "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "build": "npm run build"
-  },
-  "author": "uhtred",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "body-parser": "^1.20.2",
-    "dotenv": "^16.4.5",
-    "ejs": "^3.1.10",
-    "express": "^4.19.2",
-    "mongoose": "^8.4.5",
-    "nodemailer": "^6.7.0"
+    "start": "nodemon index.js"
   },
   "devDependencies": {
-    "nodemon": "^3.1.4"
+    "nodemon": "^3.1.4",
+    "tailwindcss": "^3.4.17"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.5",
+    "nodemailer": "^6.10.0",
+    "path": "^0.12.7"
   }
 }
